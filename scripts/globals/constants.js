@@ -65,6 +65,7 @@ export const TYPES = {
    GAUGE: 'gauge',
    IMAGE: 'image',
    HISTORY: 'history',
+   MUSIC_BROWSER: 'music_browser',
 };
 
 export const HEADER_ITEMS = {

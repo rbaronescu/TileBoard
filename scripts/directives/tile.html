@@ -706,6 +706,39 @@
       </div>
    </div>
 
+   <div ng-if="item.type === TYPES.MUSIC_BROWSER" class="music-browser-container">
+      <div class="music-browser-sidebar">
+         <div class="search-bar">
+            <input type="text" ng-model="searchQuery" placeholder="Search..." />
+            <button ng-click="searchMusic(searchQuery)">🔍</button>
+         </div>
+         <div class="tabs">
+            <button ng-click="setTab('playlists')">Playlists</button>
+            <button ng-click="setTab('artists')">Artists</button>
+            <button ng-click="setTab('albums')">Albums</button>
+         </div>
+         <div class="list-scroll">
+            <div
+               class="music-item"
+               ng-repeat="item in musicItems"
+               ng-click="selectMusicItem(item)"
+            >
+               <img ng-src="{{item.art}}" />
+               <span>{{item.name}}</span>
+            </div>
+         </div>
+      </div>
+   
+      <div class="music-browser-content">
+         <h2>{{activeTab | uppercase}}</h2>
+         <p ng-if="!musicItems.length">No items found.</p>
+         <div class="music-detail" ng-if="selectedItem">
+            <img ng-src="{{selectedItem.art}}" />
+            <h3>{{selectedItem.name}}</h3>
+         </div>
+      </div>
+   </div>
+
    <div ng-if="item.type === TYPES.GAUGE" class="item-entity-container">
       <div class="item-gauge">
          <ng-gauge
